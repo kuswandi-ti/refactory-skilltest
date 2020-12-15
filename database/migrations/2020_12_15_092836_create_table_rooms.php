@@ -19,7 +19,7 @@ class CreateTableRooms extends Migration
 			$table->string('room_capacity');
 			$table->string('photo');
             $table->timestamps();
-			$table->timestamp('deleted_at');
+			$table->timestamp('deleted_at')->nullable();
         });
     }
 

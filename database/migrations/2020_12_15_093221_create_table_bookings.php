@@ -15,17 +15,17 @@ class CreateTableBookings extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
-			$table->bigInteger('user_id');
-			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');			
-			$table->bigInteger('room_id');
-			$table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade')->onUpdate('cascade');
+			$table->unsignedBigInteger('user_id');
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+			$table->unsignedBigInteger('room_id');
+			$table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
 			$table->integer('total_person')->default(0);
 			$table->dateTime('booking_time');
 			$table->text('noted');
-			$table->dateTime('check_in_time');
-			$table->dateTime('check_out_time');
+			$table->dateTime('check_in_time')->nullable();
+			$table->dateTime('check_out_time')->nullable();
             $table->timestamps();
-			$table->timestamp('deleted_at');
+			$table->timestamp('deleted_at')->nullable();
         });
     }
 
@@ -37,7 +37,11 @@ class CreateTableBookings extends Migration
     public function down()
     {
         Schema::dropIfExists('bookings');
-		$table->dropForeign('user_id');
-		$table->dropForeign('room_id');
+        $table->dropForeign('user_id');
+        $table->dropIndex('user_id');
+        $table->dropColumn('user_id');
+        $table->dropForeign('room_id');
+        $table->dropIndex('room_id');
+        $table->dropColumn('room_id');
     }
 }
