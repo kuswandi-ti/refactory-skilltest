@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Image;
+
 use App\Room;
 
 class RoomController extends Controller
@@ -15,7 +17,15 @@ class RoomController extends Controller
 
     	$rooms->room_name		= $request->room_name;
         $rooms->room_capacity	= $request->room_capacity;
-        $rooms->photo        	= $request->photo;
+
+        $photo                  = $request->photo;
+        $file_path              = public_path();
+        $image_name             = time() . '.' . $this->get_file_extension($photo);
+        $img                    = Image::make($photo);
+        $img->resize(200, 200);
+        $img->save($file_path.'/'.$image_name);
+
+        $rooms->photo        	= $file_path.'/'.$image_name;
 
         $saved = $rooms->save();
 
@@ -47,5 +57,9 @@ class RoomController extends Controller
         ];
 
         return response()->json($response);
+    }
+
+    function get_file_extension($file_name) {
+        return substr(strrchr($file_name,'.'), 1);
     }
 }

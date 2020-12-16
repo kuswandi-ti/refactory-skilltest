@@ -24,4 +24,5 @@ Route::prefix('v1')->group(function () {
     Route::get('/list_rooms', 'Api\RoomController@list_rooms');
     Route::post('/booking', 'Api\BookingController@booking');
     Route::post('/checkin', 'Api\BookingController@checkin');
+    Route::post('/check_booking', 'Api\BookingController@check_booking');
 });
