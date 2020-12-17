@@ -8,7 +8,7 @@
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Refactory Skill Test API - Documentation - Kuswandi</title>
+    <title>Refactory Skill Test API - Documentation</title>
     <meta name="description" content="">
     <meta name="author" content="ticlekiwi">
 
@@ -35,13 +35,7 @@
     <div class="content-menu">
         <ul>
             <li class="scroll-to-link active" data-target="get-started">
-                <a>GET STARTED</a>
-            </li>
-            <li class="scroll-to-link" data-target="get-characters">
-                <a>Get Characters</a>
-            </li>
-            <li class="scroll-to-link" data-target="errors">
-                <a>Errors</a>
+                <a>Get Started</a>
             </li>
             <li class="scroll-to-link" data-target="register">
                 <a>Register User</a>
@@ -76,268 +70,40 @@
     API Endpoint
 
         https://api.westeros.com/
-                </pre>
+            </pre>
             <p>
                 The Westeros API provides programmatic access to read Game of Thrones data. Retrieve a character, provide an oauth connexion, retrieve a familly, filter them, etc.
             </p>
             <p>
                 To use this API, you need an <strong>API key</strong>. Please contact us at <a href="mailto:jon.snow@nightswatch.wes">jon.snow@nightswatch.wes</a> to get your own API key.
             </p>
-        </div>
-        <div class="overflow-hidden content-section" id="content-get-characters">
-            <h2 id="get-characters">get characters</h2>
-            <pre><code class="bash">
-# Here is a curl example
-curl \
--X POST http://api.westeros.com/character/get \
--F 'secret_key=your_api_key' \
--F 'house=Stark,Bolton' \
--F 'offset=0' \
--F 'limit=50'
-                </code></pre>
-            <p>
-                To get characters you need to make a POST call to the following url :<br>
-                <code class="higlighted">http://api.westeros.com/character/get</code>
-            </p>
-            <br>
-            <pre><code class="json">
-Result example :
-
-{
-  query:{
-    offset: 0,
-    limit: 50,
-    house: [
-      "Stark",
-      "Bolton"
-    ],
-  }
-  result: [
-    {
-      id: 1,
-      first_name: "Jon",
-      last_name: "Snow",
-      alive: true,
-      house: "Stark",
-      gender: "m",
-      age: 14,
-      location: "Winterfell"
-    },
-    {
-      id: 2,
-      first_name: "Eddard",
-      last_name: "Stark",
-      alive: false,
-      house: "Stark",
-      gender: "m",
-      age: 35,
-      location: 'Winterfell'
-    },
-    {
-      id: 3,
-      first_name: "Catelyn",
-      last_name: "Stark",
-      alive: false,
-      house: "Stark",
-      gender: "f",
-      age: 33,
-      location: "Winterfell"
-    },
-    {
-      id: 4,
-      first_name: "Roose",
-      last_name: "Bolton",
-      alive: false,
-      house: "Bolton",
-      gender: "m",
-      age: 40,
-      location: "Dreadfort"
-    },
-    {
-      id: 5,
-      first_name: "Ramsay",
-      last_name: "Snow",
-      alive: false,
-      house: "Bolton",
-      gender: "m",
-      age: 15,
-      location: "Dreadfort"
-    },
-  ]
-}
-                </code></pre>
-            <h4>QUERY PARAMETERS</h4>
-            <table>
-                <thead>
-                <tr>
-                    <th>Field</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>secret_key</td>
-                    <td>String</td>
-                    <td>Your API key.</td>
-                </tr>
-                <tr>
-                    <td>search</td>
-                    <td>String</td>
-                    <td>(optional) A search word to find character by name.</td>
-                </tr>
-                <tr>
-                    <td>house</td>
-                    <td>String</td>
-                    <td>
-                        (optional) a string array of houses:
-                    </td>
-                </tr>
-                <tr>
-                    <td>alive</td>
-                    <td>Boolean</td>
-                    <td>
-                        (optional) a boolean to filter alived characters
-                    </td>
-                </tr>
-                <tr>
-                    <td>gender</td>
-                    <td>String</td>
-                    <td>
-                        (optional) a string to filter character by gender:<br>
-                        m: male<br>
-                        f: female
-                    </td>
-                </tr>
-                <tr>
-                    <td>offset</td>
-                    <td>Integer</td>
-                    <td>(optional - default: 0) A cursor for use in pagination. Pagination starts offset the specified offset.</td>
-                </tr>
-                <tr>
-                    <td>limit</td>
-                    <td>Integer</td>
-                    <td>(optional - default: 10) A limit on the number of objects to be returned, between 1 and 100.</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="overflow-hidden content-section" id="content-errors">
-            <h2 id="errors">Errors</h2>
-            <p>
-                The Westeros API uses the following error codes:
-            </p>
-            <table>
-                <thead>
-                <tr>
-                    <th>Error Code</th>
-                    <th>Meaning</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>X000</td>
-                    <td>
-                        Some parameters are missing. This error appears when you don't pass every mandatory parameters.
-                    </td>
-                </tr>
-                <tr>
-                    <td>X001</td>
-                    <td>
-                        Unknown or unvalid <code class="higlighted">secret_key</code>. This error appears if you use an unknow API key or if your API key expired.
-                    </td>
-                </tr>
-                <tr>
-                    <td>X002</td>
-                    <td>
-                        Unvalid <code class="higlighted">secret_key</code> for this domain. This error appears if you use an  API key non specified for your domain. Developper or Universal API keys doesn't have domain checker.
-                    </td>
-                </tr>
-                <tr>
-                    <td>X003</td>
-                    <td>
-                        Unknown or unvalid user <code class="higlighted">token</code>. This error appears if you use an unknow user <code class="higlighted">token</code> or if the user <code class="higlighted">token</code> expired.
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        </div>        
 
         <div class="overflow-hidden content-section" id="content-register">
             <h2 id="register">Register User</h2>
-            <p>
-                <b>POST</b><br>
-                <code class="higlighted">https://refactory-skilltest.herokuapp.com/api/v1/register</code>
-            </p>
-            <br>
+
             <pre>
                 <code class="json">
 Result example :
 
 {
-  query:{
-    offset: 0,
-    limit: 50,
-    house: [
-      "Stark",
-      "Bolton"
-    ],
-  }
-  result: [
-    {
-      id: 1,
-      first_name: "Jon",
-      last_name: "Snow",
-      alive: true,
-      house: "Stark",
-      gender: "m",
-      age: 14,
-      location: "Winterfell"
-    },
-    {
-      id: 2,
-      first_name: "Eddard",
-      last_name: "Stark",
-      alive: false,
-      house: "Stark",
-      gender: "m",
-      age: 35,
-      location: 'Winterfell'
-    },
-    {
-      id: 3,
-      first_name: "Catelyn",
-      last_name: "Stark",
-      alive: false,
-      house: "Stark",
-      gender: "f",
-      age: 33,
-      location: "Winterfell"
-    },
-    {
-      id: 4,
-      first_name: "Roose",
-      last_name: "Bolton",
-      alive: false,
-      house: "Bolton",
-      gender: "m",
-      age: 40,
-      location: "Dreadfort"
-    },
-    {
-      id: 5,
-      first_name: "Ramsay",
-      last_name: "Snow",
-      alive: false,
-      house: "Bolton",
-      gender: "m",
-      age: 15,
-      location: "Dreadfort"
-    },
-  ]
+    "success": true,
+    "message": "User berhasil register."
 }
                 </code>
             </pre>
+
+            <p>
+                <b>POST</b><br>
+                <code class="higlighted">https://refactory-skilltest.herokuapp.com/api/v1/register</code>
+                <br><br>Screenshoot :<br>
+                <img src="{{ asset('documentation/images/register_berhasil.jpg') }}" />
+                <br><br>Email konfirmasi :<br>
+                <img src="{{ asset('documentation/images/email_register_berhasil.jpg') }}" />
+            </p>
+
+            <br>
+            
             <h4>QUERY PARAMETERS</h4>
             <table>
                 <thead>
@@ -428,7 +194,7 @@ Result example :
 
 {
     "success": true,
-    "message": "Login berhasil"
+    "message": "Ruangan berhasil disimpan."
 }
                 </code>
             </pre>
@@ -437,7 +203,7 @@ Result example :
                 <b>POST</b><br>
                 <code class="higlighted">https://refactory-skilltest.herokuapp.com/api/v1/create_room</code>
                 <br><br>Screenshoot :<br>
-                <img src="{{ asset('documentation/images/login_berhasil.jpg') }}" />
+                <img src="{{ asset('documentation/images/create_room.jpg') }}" />
             </p>
 
             <br> 
@@ -613,7 +379,18 @@ Result example :
 
 {
     "success": true,
-    "message": "Login berhasil"
+    "data": [
+        {
+            "id": 11,
+            "room_name": "Ruangan Meeting 11",
+            "room_capacity": "30",
+            "photo": "/app/public/1608191505.jpg",
+            "created_at": "2020-12-17 07:51:46",
+            "updated_at": "2020-12-17 07:51:46",
+            "deleted_at": null
+        }
+    ],
+    "message": "Booking berhasil disimpan."
 }
                 </code>
             </pre>
@@ -622,7 +399,9 @@ Result example :
                 <b>POST</b><br>
                 <code class="higlighted">https://refactory-skilltest.herokuapp.com/api/v1/booking</code>
                 <br><br>Screenshoot :<br>
-                <img src="{{ asset('documentation/images/login_berhasil.jpg') }}" />
+                <img src="{{ asset('documentation/images/booking.jpg') }}" />
+                <br><br>Email konfirmasi :<br>
+                <img src="{{ asset('documentation/images/email_booking.jpg') }}" />
             </p>
 
             <br> 
@@ -675,7 +454,7 @@ Result example :
 
 {
     "success": true,
-    "message": "Login berhasil"
+    "message": "Tanggal booking anda sama dengan hari ini"
 }
                 </code>
             </pre>
@@ -684,7 +463,9 @@ Result example :
                 <b>POST</b><br>
                 <code class="higlighted">https://refactory-skilltest.herokuapp.com/api/v1/check_booking</code>
                 <br><br>Screenshoot :<br>
-                <img src="{{ asset('documentation/images/login_berhasil.jpg') }}" />
+                <img src="{{ asset('documentation/images/booking_check.jpg') }}" />
+                <br><br>Email konfirmasi :<br>
+                <img src="{{ asset('documentation/images/email_booking_check.jpg') }}" />
             </p>
 
             <br> 
@@ -717,7 +498,22 @@ Result example :
 
 {
     "success": true,
-    "message": "Login berhasil"
+    "data": [
+        {
+            "id": 3,
+            "user_id": 5,
+            "room_id": 11,
+            "total_person": 20,
+            "booking_time": "2020-12-17 00:00:00",
+            "noted": "Booking via API",
+            "check_in_time": "2020-12-17 00:00:00",
+            "check_out_time": "2020-12-30 00:00:00",
+            "created_at": "2020-12-17 07:54:42",
+            "updated_at": "2020-12-17 08:01:33",
+            "deleted_at": null
+        }
+    ],
+    "message": "Check In berhasil disimpan."
 }
                 </code>
             </pre>
@@ -726,7 +522,9 @@ Result example :
                 <b>POST</b><br>
                 <code class="higlighted">https://refactory-skilltest.herokuapp.com/api/v1/checkin</code>
                 <br><br>Screenshoot :<br>
-                <img src="{{ asset('documentation/images/login_berhasil.jpg') }}" />
+                <img src="{{ asset('documentation/images/checkin_berhasil.jpg') }}" />
+                <br><br>Email konfirmasi :<br>
+                <img src="{{ asset('documentation/images/email_checkin.jpg') }}" />
             </p>
 
             <br> 
