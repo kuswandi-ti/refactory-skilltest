@@ -8,7 +8,7 @@
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Refactory Skill Test API - Documentation</title>
+    <title>Refactory Skill Test API - Documentation - Kuswandi</title>
     <meta name="description" content="">
     <meta name="author" content="ticlekiwi">
 
@@ -69,13 +69,18 @@
             <pre>
     API Endpoint
 
-        https://api.westeros.com/
+        https://refactory-skilltest.herokuapp.com/
             </pre>
             <p>
-                The Westeros API provides programmatic access to read Game of Thrones data. Retrieve a character, provide an oauth connexion, retrieve a familly, filter them, etc.
-            </p>
-            <p>
-                To use this API, you need an <strong>API key</strong>. Please contact us at <a href="mailto:jon.snow@nightswatch.wes">jon.snow@nightswatch.wes</a> to get your own API key.
+                <h6>Spesifikasi :</h6>
+                <ul>
+                    <li>Backend : <a href="https://laravel.com/">Laravel</a></li>
+                    <li>Database : <a href="https://www.db4free.net/">db4free (MySQL)</a></li>
+                    <li>Mail Testing : <a href="https://mailtrap.io/">mailtrap</a></li>
+                    <li>Laravel Image Processing : <a href="http://image.intervention.io/">intervention image</a></li>
+                    <li>Required PHP library : php_gd2.dll</a></li>
+                    <li>Required PHP module : allow_url_fopen = On</li>
+                </ul>
             </p>
         </div>        
 
