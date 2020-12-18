@@ -58,6 +58,12 @@
             <li class="scroll-to-link" data-target="checkin">
                 <a>Check In</a>
             </li>
+            <li class="scroll-to-link" data-target="graphql">
+                <a>GraphQL</a>
+            </li>
+            <li class="scroll-to-link" data-target="about">
+                <a>About</a>
+            </li>
         </ul>
     </div>
 </div>
@@ -74,12 +80,21 @@
             <p>
                 <h6>Spesifikasi :</h6>
                 <ul>
-                    <li>Backend : <a href="https://laravel.com/">Laravel</a></li>
-                    <li>Database : <a href="https://www.db4free.net/">db4free (MySQL)</a></li>
-                    <li>Mail Testing : <a href="https://mailtrap.io/">mailtrap</a></li>
-                    <li>Laravel Image Processing : <a href="http://image.intervention.io/">intervention image</a></li>
+                    <li>Backend : <a href="https://laravel.com/" target="_blank">Laravel</a></li>
+                    <li>Deploy : <a href="https://www.heroku.com" target="_blank">Heroku</a></li>
+                    <li>Database : <a href="https://www.db4free.net/" target="_blank">db4free (MySQL)</a></li>
+                    <li>Mail Testing : <a href="https://mailtrap.io/" target="_blank">mailtrap</a></li>
+                    <li>Laravel Image Processing : <a href="http://image.intervention.io/" target="_blank">intervention image</a></li>
                     <li>Required PHP library : php_gd2.dll</a></li>
                     <li>Required PHP module : allow_url_fopen = On</li>
+                </ul>
+            </p>
+            <p>
+                <h6>Source :</h6>
+                <ul>
+                    <li><a href="https://refactory-skilltest.herokuapp.com/" target="_blank">API Endpoint Demo</a></li>
+                    <li><a href="http://refactory-skilltest.herokuapp.com/" target="_blank">Documentation</a></li>
+                    <li><a href="https://github.com/kuswandi-ti/refactory-skilltest" target="_blank">Github Repository</a></li>
                 </ul>
             </p>
         </div>        
@@ -561,6 +576,53 @@ Result example :
                     </tr>
                 </tbody>
             </table>
+        </div>
+
+        <div class="overflow-hidden content-section" id="content-graphql">
+            <h2 id="graphql">GraphQL</h2>
+
+            <pre>
+                <code class="json">
+Result example :
+
+{
+  "data": {
+    "user": {
+      "id": 1,
+      "name": "kuswandi",
+      "email": "kuswandi.ti@gmail.com",
+      "password": "$2y$10$0OFPrA0E/cy.7iKMxSr8EuC4nN1VUoG8jIyElTD7GLbV83v39RnVG"
+    }
+  }
+}
+                </code>
+            </pre>
+
+            <p>
+                <b>GraphQL Endpoint</b><br>
+                <code class="higlighted">http://refactory-skilltest.herokuapp.com/graphiql</code>
+                <br><br><b>QUERY</b><br>
+                <code class="higlighted">user</code>
+                <br><br>Screenshoot :<br>
+                <img src="{{ asset('documentation/images/graphql.jpg') }}" />
+            </p>
+        </div>
+
+        <div class="overflow-hidden content-section" id="content-about">
+            <h2 id="about">About Me</h2>
+
+            <pre>
+    About me
+
+        https://kuswandi.scriptproject.web.id/               
+            </pre>
+
+            <p>
+                <a href="https://kuswandi.scriptproject.web.id/">About Me & Porftolio</a>
+            </p>
+            <p>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </p>
         </div>
     </div>
     <div class="content-code"></div>
